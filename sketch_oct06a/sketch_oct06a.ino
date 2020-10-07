@@ -1,15 +1,36 @@
+
+const int Trigger = 2;
+const int Echo = 3;
+
+
 void setup() {
   // put your setup code here, to run once:
-
-  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(9600); // initialize the comunication 
+  pinMode(Trigger, OUTPUT); // Salida
+  pinMode(Echo, INPUT); // Entrada
+  digitalWrite(Trigger, LOW); // inicializamos el pin en 0
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(500);
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(500);
+  long t; // time
+  long d; // distance
+
+
+  digitalWrite(Trigger,HIGH);
+  delayMicroseconds(10); // Enviamos un pulso de 10us
+  digitalWrite(Trigger, LOW);
+
+
+  t = pulseIn(Echo, HIGH); // get width of 
+  d = t/59; // time in seconds
+
+  Serial.print("Distancia: ");
+  Serial.print(d);
+  Serial.print(" cm");
+  Serial.println("");
+  delay(100);
+  
 }
