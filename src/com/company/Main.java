@@ -3,7 +3,10 @@ package com.company;
 
 
 import com.arduino.Arduino;
-import javax.swing.JFrame;
+
+import javax.swing.*;
+/*import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;*/
 /*import com.database.Database;
 import com.fazecast.jSerialComm.SerialPort;*/
 
@@ -12,12 +15,29 @@ import java.io.IOException;
 
 public class Main {
 
+    JFrame root ;
+    JPanel panel ;
+
+    public Main (){
+        root = new JFrame();
+        root.setTitle("Arduino sensor module.");
+        root.setSize(600,400);
+        root.setVisible(true);
+        this.CreatePanel();
+    }
+
+    public void CreatePanel(){
+        panel = new JPanel();
+        root.add(panel);
+
+        //XYSeries series = new
+    }
+
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        JFrame root = new JFrame();
-        root.setTitle("Arduino sensor module.");
-        root.setSize(600,400);
+        Main root = new Main();
+        //root.CreatePanel();
 
         Arduino arduino = new Arduino();
         arduino.test();
