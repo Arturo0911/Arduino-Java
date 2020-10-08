@@ -1,0 +1,63 @@
+package com.arduino;
+
+import com.fazecast.jSerialComm.SerialPort;
+
+
+import java.io.IOException;
+import java.util.*;
+
+public class Arduino {
+
+    //private static final
+    private ArrayList<Integer> vector;
+    SerialPort arduino ;
+
+    public Arduino() throws IOException, InterruptedException {
+
+        try {
+            arduino = SerialPort.getCommPort("/dev/ttyACM0"); // get from port of computer that already connected by the arduino
+            arduino.setComPortParameters(9600, 8,1,0);
+            arduino.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER,0,0);
+
+
+            if (arduino.openPort()){
+                System.out.println("Port open.");
+            } else{
+                System.out.println("Something was happen in port. ");
+            }
+
+        }catch (Exception e){
+            System.out.println("Error by: "+e);
+
+        }
+
+
+        this.FetchData();
+    }
+
+    public ArrayList FetchData() throws  IOException, InterruptedException{
+        vector = new ArrayList<Integer>();
+        Scanner scanner = new Scanner(arduino.getInputStream());
+        int x = 0;
+
+        while (scanner.hasNextLine()){
+
+            String line = scanner.nextLine();
+            int number = Integer.parseInt(line);
+            vector.add(number);
+            if (x == 9){
+                break;
+            }else {
+                x ++ ;
+            }
+        }
+
+        arduino.closePort();
+        return  vector;
+    }
+
+    public void test(){
+        System.out.println("Receiving data...");
+        System.out.println(vector);
+    }
+}

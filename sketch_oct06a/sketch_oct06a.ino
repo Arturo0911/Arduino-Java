@@ -27,10 +27,9 @@ void loop() {
   t = pulseIn(Echo, HIGH); // get width of 
   d = t/59; // time in seconds
 
-  Serial.print("Distancia: ");
-  Serial.print(d);
-  Serial.print(" cm");
-  Serial.println("");
+  
+  Serial.println(d);
+
   delay(1000);
   
 }
