@@ -1,6 +1,7 @@
 package com.company;
 
 
+import com.database.Database;
 import com.fazecast.jSerialComm.SerialPort;
 
 
@@ -12,6 +13,14 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+        Database db = new Database();
+        //db.Query();
+
+        //db.Insert("Favio");
+        db.FetchRows();
+
+
 
 
         /*SerialPort arduino = SerialPort.getCommPort("/dev/ttyACM0");
