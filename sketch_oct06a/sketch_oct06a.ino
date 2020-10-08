@@ -1,6 +1,6 @@
 
-const int Trigger = 2;
-const int Echo = 3;
+const int Trigger = 3;
+const int Echo = 2;
 
 
 void setup() {
@@ -20,7 +20,7 @@ void loop() {
 
 
   digitalWrite(Trigger,HIGH);
-  delayMicroseconds(10); // Enviamos un pulso de 10us
+  delayMicroseconds(1000); // Enviamos un pulso de 10us
   digitalWrite(Trigger, LOW);
 
 
@@ -31,6 +31,6 @@ void loop() {
   Serial.print(d);
   Serial.print(" cm");
   Serial.println("");
-  delay(100);
+  delay(1000);
   
 }
