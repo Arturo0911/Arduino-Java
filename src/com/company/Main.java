@@ -3,6 +3,7 @@ package com.company;
 
 
 import com.arduino.Arduino;
+import com.gui.Root;
 
 import javax.swing.*;
 /*import org.jfree.data.xy.XYSeries;
@@ -15,7 +16,7 @@ import java.io.IOException;
 
 public class Main {
 
-    JFrame root ;
+    /*JFrame root ;
     JPanel panel ;
 
     public Main (){
@@ -31,15 +32,19 @@ public class Main {
         root.add(panel);
 
         //XYSeries series = new
-    }
+    }*/
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        Main root = new Main();
+        Root root = new Root();
+
+
+        //Main root = new Main();
         //root.CreatePanel();
 
         Arduino arduino = new Arduino();
         arduino.test();
+        arduino.CheckObstacule();
     }
 }

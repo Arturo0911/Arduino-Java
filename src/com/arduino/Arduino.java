@@ -53,11 +53,45 @@ public class Arduino {
         }
 
         arduino.closePort();
+        //System.out.println("process is already broken");
         return  vector;
     }
 
+
+    public void CheckObstacule(){
+
+        System.out.println("Printing the CheckObstacule method");
+        System.out.println(this.vector);
+
+
+
+        while (true){
+
+            int suma = 0 ;
+
+            for (int x =0; x < 10; x ++){
+
+                suma = suma + this.vector.get(x);
+            }
+
+            if (suma < 60){
+                System.out.println("");
+                System.out.println("WARNING!!!! It's to close from your face.");
+                break;
+
+            }else {
+                System.out.println("No problem. Remain in your place.");
+            }
+
+        }
+
+    }
+
+
+
+
     public void test(){
-        System.out.println("Receiving data...");
-        System.out.println(vector);
+        //System.out.println("Receiving data...");
+        //System.out.println(vector);
     }
 }
