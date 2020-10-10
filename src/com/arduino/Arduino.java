@@ -58,25 +58,32 @@ public class Arduino {
     }
 
 
-    public void CheckObstacule(){
+    public void CheckObstacule() throws IOException, InterruptedException {
 
         System.out.println("Printing the CheckObstacule method");
-        System.out.println(this.vector);
+        System.out.println(vector);
+
 
 
 
         while (true){
 
+
             int suma = 0 ;
 
             for (int x =0; x < 10; x ++){
 
-                suma = suma + this.vector.get(x);
+                System.out.println(vector.get(x));
+
+                suma = suma + vector.get(x);
             }
 
-            if (suma < 60){
-                System.out.println("");
+            System.out.println(suma);
+
+            if ((suma/10) < 60){
+                System.out.println("-----------WARNING----------");
                 System.out.println("WARNING!!!! It's to close from your face.");
+                System.out.println("-----------WARNING----------");
                 break;
 
             }else {
@@ -91,6 +98,7 @@ public class Arduino {
 
 
     public void test(){
+        System.out.println("error");
         //System.out.println("Receiving data...");
         //System.out.println(vector);
     }

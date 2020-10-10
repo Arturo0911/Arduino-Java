@@ -37,14 +37,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        Root root = new Root();
+        //Root root = new Root();
 
 
         //Main root = new Main();
         //root.CreatePanel();
 
         Arduino arduino = new Arduino();
-        arduino.test();
+        //arduino.test();
         arduino.CheckObstacule();
     }
 }
