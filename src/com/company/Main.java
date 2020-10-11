@@ -44,7 +44,8 @@ public class Main {
         //root.CreatePanel();
 
         Arduino arduino = new Arduino();
-        //arduino.test();
+        arduino.test();
         arduino.CheckObstacule();
+        System.out.println("Hola mundo");
     }
 }
