@@ -22,6 +22,14 @@ public class Database {
             conn = (Connection) DriverManager.getConnection(url, User, Pass); // to convert to DriverManager statement to Connection Type
             System.out.println("Connection was done successfully");
 
+            /*
+             *String connection = "jdbc:sqlserver://localhost:1433;"+"database=master;"+"user=sa;"+"password:1234;"+"loginTimeout=30;"
+             *
+             *
+             * */
+
+
+
         } catch (Exception e ){
             System.out.println("Error in GetConnection method by: "+e.toString());
         }
